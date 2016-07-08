@@ -10,10 +10,14 @@ class Form(object):
     """description of class"""
 
     def __init__(self):
-        pygame.init() # Инициация PyGame, обязательная строчка 
-        screen = pygame.display.set_mode(DISPLAY) # Создаем окошко
+        pygame.init() # Инициация PyGame, обязательная строчка         
+        window = pygame.display.set_mode(WINDOW) # Создаем окошко
+        screen = pygame.Surface(GAME_SCREEN)
+        menu   = pygame.Surface(GAME_MENU)
         pygame.display.set_caption("Life") # Пишем в шапку
         mainLoop = True # флаг главного цикла
+
+        clock = pygame.time.Clock()
 
         life = Life(screen)
         life.initPopul()
@@ -35,13 +39,22 @@ class Form(object):
                          
                    
             screen.fill(BACKGROUND_COLOR)
-        
-            #sleep(1)
+            menu.fill((100,100,100))
             
             #create frame here 
-            life.drawAlive(flDraw)
-                                       
-            pygame.display.update()
+            life.drawAlive(flDraw) 
+
+
+            window.blit(screen, [0,0])
+            window.blit(menu, [700,0])
+            pygame.display.flip()
+
+            clock.tick(50)
+            pygame.display.set_caption("fps: " + str(clock.get_fps()))
+            
+                                               
+               
+            #pygame.display.update()
     
         pygame.quit() 
 

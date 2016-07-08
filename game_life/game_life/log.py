@@ -2,7 +2,7 @@ import sys
 import logging
 import os
 
-# логгирование
+# пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 LOG_FILENAME = 'example.log'
 os.remove(LOG_FILENAME)
 logging.basicConfig(

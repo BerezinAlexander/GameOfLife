@@ -1,49 +1,42 @@
 from time import clock
 import random
 
-# проверка на живучесть
-def is_alive(con, alive_cons):
-    #logger.info("Life.is_alive")
-    for al in alive_cons: 
-        if con == al: 
-            return True
-    return False 
+import cProfile
+import re
+#cProfile.run('re.compile("foo|bar")')
 
-# подсчет кол-ва живых соседей
-def count_alive_neib(neib, als):
-    #logger.info("Life.count_alive_neib")
-    count = 0
-    for ne in neib:
-        if (is_alive(ne, als)):
-            count += 1
-    return count
+NEIGHBOR_SET = ((0, 1), (-1, 1), (-1, 0), (-1, -1), (0, -1), (1, 0), (1, -1), (1, 1))
             
-# функция получения соседей    
+# РџРѕР»СѓС‡РµРЅРёРµ РІСЃРµС… СЃРѕСЃРµРґРµР№
 def get_neightbors(con):
-    #logger.info("Life.get_neightbors")
     x, y = con
-    neighbors = [(x + i, y + j)
-                for i in range(-1, 2)
-                for j in range(-1, 2)
-                if not i == j == 0]
-    return neighbors
+    return  set((x + dx, y + dy) for dx, dy in NEIGHBOR_SET)
 
-als = []
-for i in range(0, 101):
-    als.append((random.randrange(0,50,1), random.randrange(0,50,1)))
-#con = (2,7)
+def next_step(alives, board):
+    new_alives = set()
+    for con in board:
+        count_neib = len(alives & get_neightbors(con))
+        if ((count_neib == 3) or (count_neib == 2 and con in alives)):
+            new_alives.add(con)
+    return new_alives
 
-board = []
-for i in range(0, 701):
-    board.append((random.randrange(0,50,1), random.randrange(0,50,1)))
+als = set()
+for i in range(0, 800):
+    als.add((random.randrange(0,50,1), random.randrange(0,50,1)))
+
+board = set()
+for i in range(0, 3000):
+    board.add((random.randrange(0,50,1), random.randrange(0,50,1)))
+
+
+cProfile.run('next_step(als,board)')
 
 start = clock()
 
-for con in board:
-    neib = get_neightbors(con)
-    count_neib = count_alive_neib(neib, als)
-    if ((count_neib == 3) or (count_neib == 2 and is_alive(con, als))):
-        sdf = 4
+als = next_step(als, board)
 
 end = clock()
 print(end-start)
+
+start = clock()
+
