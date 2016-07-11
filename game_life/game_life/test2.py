@@ -24,6 +24,32 @@ def usl(al):
         return 0
     return 1
 
+def dead_sort(alives):
+    
+    alives = list(sorted(alives,key=lambda x: x[0]))
+    for al in alives:
+        if al[0] < 0:
+            alives.remove(al)
+        else:
+            break
+    for al in reversed(alives):
+        if al[0] > COUNT_CELLS_X:
+            alives.remove(al)
+        else:
+            break 
+
+    alives = list(sorted(alives,key=lambda x: x[1]))
+    for al in alives:
+        if al[1] < 0:
+            alives.remove(al)
+        else:
+            break
+    for al in reversed(alives):
+        if al[1] > COUNT_CELLS_Y:
+            alives.remove(al)
+        else:
+            break 
+        
 def dead_contour(alives):
     for i in range(-1, COUNT_CELLS_X + 1):
         if (i, -1) in alives:
@@ -53,8 +79,9 @@ def test(alives, count):
         alives = next_step(alives, board)
         
         if i%16 == 0:
-            dead_contour(alives)    
-        #alives = set(filter(usl, alives))
+            #dead_contour(alives)  
+            #dead_sort(alives)  
+            alives = set(filter(usl, alives))
     
         #if i%16 == 0:
         #    alives = set(filter(usl, alives))

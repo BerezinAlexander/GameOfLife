@@ -20,8 +20,19 @@ class Form(object):
         clock = pygame.time.Clock()
 
         life = Life(screen)
-        life.initPopul(life.shapeL((50,50)))
+        #initCrd = life.shapeL((50,50)) | life.shapeL((25,25)) | life.shapeL((25,75)) | life.shapeL((75,25)) | life.shapeL((75,75))
+        initCrd = set()
+        for i in range(33):
+            for j in range(33):
+                initCrd.update(life.shapeSquare((i*3+1,j*3+1)))
+            
+        
 
+
+        #life.initPopul(initCrd)
+        initPopul = life.shapeSquare((i*3+1,j*3+1))
+        life.initPopul(initPopul)
+        
         flDraw = True
     
         #initial data here
@@ -32,7 +43,7 @@ class Form(object):
                 if event.type == MOUSEBUTTONDOWN: 
                     if event.button == 1: 
                         crd = event.pos
-                        life.addCell((int( crd[0]//10.0), int( crd[1]//10.0)))
+                        life.addCell((int( crd[0]//float(CELL_SIZE)), int( crd[1]//float(CELL_SIZE))))
                 if event.type == KEYDOWN: 
                     if event.key == K_SPACE:
                         flDraw = not flDraw
@@ -46,7 +57,7 @@ class Form(object):
 
 
             window.blit(screen, [0,0])
-            window.blit(menu, [700,0])
+            window.blit(menu, [MAP_WIDTH,0])
             pygame.display.flip()
 
             clock.tick(50)

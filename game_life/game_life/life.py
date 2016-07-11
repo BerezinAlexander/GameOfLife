@@ -16,6 +16,7 @@ class Life(object):
     def __init__(self, scr):
         logger.info("Life.init")
         self.alive_cons = set()
+        self.countGeneration = 0
         self.draw = Draw(scr)
 
     def initPopul(self, alive = set( [(4,6), (5,6), (6,6),(6,5), (5,4), (30,10), (30,11), (30,12)] )):
@@ -33,6 +34,7 @@ class Life(object):
         self.draw.drawAll()
 
     def newStep(self):
+        self.countGeneration += 1
         # получение живых клеток и их соседей
         board = self.alive_cons | set(chain(*(get_neightbors(point) for point in self.alive_cons)))
 
@@ -46,8 +48,8 @@ class Life(object):
         
         end = clock()
         logger.info("Life.newStep fill board [%s], board.count: [%s], alives: [%s]", clock() - start, len(board), len(self.alive_cons))
-
-        alive_cons_new = set(filter(usl, alive_cons_new))
+        if self.countGeneration%16 == 0:
+            alive_cons_new = set(filter(usl, alive_cons_new))
 
         self.alive_cons = alive_cons_new
     
@@ -60,6 +62,14 @@ class Life(object):
         crd.add( (point[0]+1, point[1]+2) )
         crd.add( (point[0]+2, point[1]+2) )
         crd.add( (point[0]+2, point[1]+1) )
+        return crd
+    # фигура квадрат 2х2
+    def shapeSquare(self, point):
+        crd = set()
+        crd.add( (point) )
+        crd.add( (point[0], point[1]+1) )
+        crd.add( (point[0]+1, point[1]) )
+        crd.add( (point[0]+1, point[1]+1) )
         return crd
 
 def usl(al):

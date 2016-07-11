@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>542123fd-eb8c-447d-8de5-64a8bec20d72</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>test2.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
