@@ -3,6 +3,7 @@ import itertools
 from log import *
 from time import clock
 from itertools import chain
+import cProfile
 
 # функция получения соседей    
 def get_neightbors(con):
@@ -49,10 +50,21 @@ class Life(object):
         alive_cons_new = set(filter(usl, alive_cons_new))
 
         self.alive_cons = alive_cons_new
+    
+    # фигура L
+    def shapeL(self, point):
+        crd = set()
+        crd.add( (point) )
+        crd.add( (point[0], point[1]+1) )
+        crd.add( (point[0], point[1]+2) )
+        crd.add( (point[0]+1, point[1]+2) )
+        crd.add( (point[0]+2, point[1]+2) )
+        crd.add( (point[0]+2, point[1]+1) )
+        return crd
 
 def usl(al):
-    if(al[0] < -2 or al[0] > (GAME_SCREEN[0]/10)+2):
+    if(al[0] < -2 or al[0] > COUNT_CELLS_X + 2):
         return 0
-    elif(al[1] < -2 or al[1] > (GAME_SCREEN[1]/10)+2):
+    elif(al[1] < -2 or al[1] >COUNT_CELLS_X + 2):
         return 0
     return 1

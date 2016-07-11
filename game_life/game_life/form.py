@@ -20,7 +20,7 @@ class Form(object):
         clock = pygame.time.Clock()
 
         life = Life(screen)
-        life.initPopul()
+        life.initPopul(life.shapeL((50,50)))
 
         flDraw = True
     
