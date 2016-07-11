@@ -1,0 +1,104 @@
+***************************************************         
+***		Размер поля 80 на 64 + print			***
+***************************************************		 
+		 
+		 5576001 function calls (5570001 primitive calls) in 24.981 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   24.981   24.981 <string>:1(<module>)
+     2000    0.007    0.000    0.009    0.000 cp866.py:18(encode)
+  4332501   11.330    0.000   11.330    0.000 test2.py:10(<genexpr>)
+     1000    2.639    0.003   18.892    0.019 test2.py:12(next_step)
+    97859    0.489    0.000    0.489    0.000 test2.py:20(usl)
+        1    0.472    0.472   24.981   24.981 test2.py:46(test)
+    98740    0.438    0.000    4.696    0.000 test2.py:49(<genexpr>)
+   481389    9.153    0.000   20.483    0.000 test2.py:8(get_neightbors)
+     2000    0.017    0.000    0.032    0.000 visualstudio_py_debugger.py:211(__enter__)
+     2000    0.015    0.000    0.021    0.000 visualstudio_py_debugger.py:220(__exit__)
+     2000    0.056    0.000    0.422    0.000 visualstudio_py_debugger.py:2374(write)
+     4000    0.018    0.000    0.021    0.000 visualstudio_py_debugger.py:348(get_thread_from_id)
+8000/2000    0.045    0.000    0.045    0.000 visualstudio_py_debugger.py:528(probe_stack)
+    10000    0.020    0.000    0.081    0.000 visualstudio_py_util.py:133(write_bytes)
+     4000    0.011    0.000    0.042    0.000 visualstudio_py_util.py:141(write_int)
+     2000    0.030    0.000    0.080    0.000 visualstudio_py_util.py:165(write_string)
+     2000    0.002    0.000    0.002    0.000 {built-in method charmap_encode}
+        1    0.000    0.000   24.981   24.981 {built-in method exec}
+     6000    0.001    0.000    0.001    0.000 {built-in method get_ident}
+     2000    0.000    0.000    0.000    0.000 {built-in method isinstance}
+   385649    0.018    0.000    0.018    0.000 {built-in method len}
+     4000    0.002    0.000    0.002    0.000 {built-in method pack}
+     1000    0.010    0.000    0.432    0.000 {built-in method print}
+     2000    0.002    0.000    0.002    0.000 {built-in method utf_8_encode}
+     6000    0.002    0.000    0.002    0.000 {method 'acquire' of '_thread.lock' objects}
+    97859    0.011    0.000    0.011    0.000 {method 'add' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+     4000    0.001    0.000    0.001    0.000 {method 'get' of 'dict' objects}
+     6000    0.001    0.000    0.001    0.000 {method 'release' of '_thread.lock' objects}
+    10000    0.062    0.000    0.062    0.000 {method 'sendall' of '_socket.socket' objects}
+     2000    0.131    0.000    0.140    0.000 {method 'write' of '_io.TextIOWrapper' objects}
+	
+***************************************************         
+***		Размер поля 80 на 64 без print			***
+***************************************************		
+	 
+	          5493001 function calls in 23.947 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   23.947   23.947 <string>:1(<module>)
+  4332501   11.130    0.000   11.130    0.000 test2.py:10(<genexpr>)
+     1000    2.600    0.003   18.549    0.019 test2.py:12(next_step)
+    97859    0.480    0.000    0.480    0.000 test2.py:20(usl)
+        1    0.443    0.443   23.947   23.947 test2.py:46(test)
+    98740    0.410    0.000    4.475    0.000 test2.py:49(<genexpr>)
+   481389    8.856    0.000   19.986    0.000 test2.py:8(get_neightbors)
+        1    0.000    0.000   23.947   23.947 {built-in method exec}
+   383649    0.018    0.000    0.018    0.000 {built-in method len}
+    97859    0.011    0.000    0.011    0.000 {method 'add' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+		
+***************************************************         
+***		Размер поля 100 на 100 без print		***
+***************************************************		
+		
+         5493001 function calls in 24.365 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   24.365   24.365 <string>:1(<module>)
+  4332501   11.266    0.000   11.266    0.000 test2.py:10(<genexpr>)
+     1000    2.603    0.003   18.868    0.019 test2.py:12(next_step)
+    97859    0.485    0.000    0.485    0.000 test2.py:20(usl)
+        1    0.451    0.451   24.365   24.365 test2.py:46(test)
+    98740    0.419    0.000    4.561    0.000 test2.py:49(<genexpr>)
+   481389    9.113    0.000   20.379    0.000 test2.py:8(get_neightbors)
+        1    0.000    0.000   24.365   24.365 {built-in method exec}
+   383649    0.017    0.000    0.017    0.000 {built-in method len}
+    97859    0.011    0.000    0.011    0.000 {method 'add' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+***************************************************         
+***		Размер поля 100 на 100 без print		***
+***		Перенес L в (50,50) из (25,25)			***
+***************************************************
+		
+		         6726878 function calls in 29.423 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   29.422   29.422 <string>:1(<module>)
+  5300748   13.604    0.000   13.604    0.000 test2.py:10(<genexpr>)
+     1000    3.158    0.003   22.645    0.023 test2.py:12(next_step)
+   123091    0.606    0.000    0.606    0.000 test2.py:20(usl)
+        1    0.554    0.554   29.422   29.422 test2.py:46(test)
+   123117    0.520    0.000    5.618    0.000 test2.py:49(<genexpr>)
+   588972   10.949    0.000   24.553    0.000 test2.py:8(get_neightbors)
+        1    0.000    0.000   29.423   29.423 {built-in method exec}
+   466855    0.020    0.000    0.020    0.000 {built-in method len}
+   123091    0.013    0.000    0.013    0.000 {method 'add' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
